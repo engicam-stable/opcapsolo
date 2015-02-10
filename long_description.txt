@@ -1,0 +1,29 @@
+Benefits
+
+    Ready to use solution
+    Linux driver ready for all pheriperals
+
+Display Features
+
+    Type: TFT 7” diagonal
+    Resolution: 800x480
+    Backlight: LED
+    Brightness: 300 Cd/m2
+    Multitouch: 5 points
+    Qualification :Industrial
+
+General Features
+
+    Power supply: 12-24 Vdc
+    1x RS232 serial IF
+    1x RS485 serial IF
+    1x CAN IF
+    Ethernet 10/100 Mbps
+    1x USB 2.0 HOST
+    uSD slot connector
+    Stereo audio jack output
+    RealTime clock
+    Capacitive Touch screen
+    14 pin expansion connector
+    Engicam EDIMM SOM family compliant
+

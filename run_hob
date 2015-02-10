@@ -1,0 +1,5 @@
+#!/bin/bash
+cd ../yocto
+source setup-environment build_opcapsolo
+hob
+exit 0

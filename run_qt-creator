@@ -1,0 +1,25 @@
+#!/bin/bash
+
+source /home/architech/architech_sdk/partners/engicam/opCapIcoreM6Solo/sdk/environment-setup-cortexa9hf-vfp-neon-poky-linux-gnueabi
+
+export  OE_QMAKE_AR="arm-poky-linux-gnueabi-ar"
+export  OE_QMAKE_CC="arm-poky-linux-gnueabi-gcc  -march=armv7-a -mthumb-interwork -mfloat-abi=hard -mfpu=neon -mtune=cortex-a9 --sysroot=/home/architech/architech_sdk/partners/engicam/opCapIcoreM6Solo/sdk/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi"
+export  OE_QMAKE_CFLAGS=" -O2 -pipe -g -feliminate-unused-debug-types"
+export  OE_QMAKE_CXX="arm-poky-linux-gnueabi-g++  -march=armv7-a -mthumb-interwork -mfloat-abi=hard -mfpu=neon -mtune=cortex-a9 --sysroot=/home/architech/architech_sdk/partners/engicam/opCapIcoreM6Solo/sdk/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi"
+export  OE_QMAKE_CXXFLAGS=" -O2 -pipe -g -feliminate-unused-debug-types"
+export  OE_QMAKE_INCDIR_QT="/home/architech/architech_sdk/partners/engicam/opCapIcoreM6Solo/sdk/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi/usr/include/qt5"
+export  OE_QMAKE_LDFLAGS="-Wl,-O1 -Wl,--hash-style=gnu -Wl,--as-needed"
+export  OE_QMAKE_LIBDIR_QT="/home/architech/architech_sdk/partners/engicam/opCapIcoreM6Solo/sdk/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi/usr/lib"
+export  OE_QMAKE_LINK="arm-poky-linux-gnueabi-g++  -march=armv7-a -mthumb-interwork -mfloat-abi=hard -mfpu=neon -mtune=cortex-a9 --sysroot=/home/architech/architech_sdk/partners/engicam/opCapIcoreM6Solo/sdk/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi"
+export  OE_QMAKE_MOC="/home/architech/architech_sdk/partners/engicam/opCapIcoreM6Solo/sdk/sysroots/i686-pokysdk-linux/usr/bin/qt5/moc"
+export  OE_QMAKE_QDBUSCPP2XML="/home/architech/architech_sdk/partners/engicam/opCapIcoreM6Solo/sdk/sysroots/i686-pokysdk-linux/usr/bin/qt5/qdbuscpp2xml"
+export  OE_QMAKE_QDBUSXML2CPP="/home/architech/architech_sdk/partners/engicam/opCapIcoreM6Solo/sdk/sysroots/i686-pokysdk-linux/usr/bin/qt5/qdbusxml2cpp"
+export  OE_QMAKE_QT_CONFIG="/home/architech/architech_sdk/partners/engicam/opCapIcoreM6Solo/sdk/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi/usr/lib/qt5/mkspecs/qconfig.pri"
+export  OE_QMAKE_RCC="/home/architech/architech_sdk/partners/engicam/opCapIcoreM6Solo/sdk/sysroots/i686-pokysdk-linux/usr/bin/qt5/rcc"
+export  OE_QMAKE_UIC="/home/architech/architech_sdk/partners/engicam/opCapIcoreM6Solo/sdk/sysroots/i686-pokysdk-linux/usr/bin/qt5/uic"
+export  QMAKESPEC="/home/architech/architech_sdk/partners/engicam/opCapIcoreM6Solo/sdk/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi/usr/lib/qt5/mkspecs/linux-oe-g++"
+export  QT_CONF_PATH="/home/architech/architech_sdk/partners/engicam/opCapIcoreM6Solo/sdk/sysroots/i686-pokysdk-linux/usr/bin/qt5/qt.conf"
+export  OE_QMAKE_QT_CONFIG="/opt/poky/1.6.1/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi/usr/lib/qt5/mkspecs/qconfig.pri"
+
+/home/architech/architech_sdk/partners/engicam/opCapIcoreM6Solo/qtcreator/bin/qtcreator.sh
+

@@ -1,0 +1,32 @@
+#!/bin/bash
+
+cd ..
+
+./splashscreen/getdocs.sh
+
+if [ $? -e 1 ]; then
+    echo "error in DOC update procedure"
+    zenity --error --title="network error" --text="Unable to retrieve DOCS packet"
+    exit 1
+fi
+
+./splashscreen/getyocto.sh
+
+if [ $? -e 1 ]; then
+    zenity --error --title="network error" --text="Unable to retrieve sources packet"
+    exit 1
+fi
+
+./splashscreen/getsdk.sh
+
+if [ $? -e 1 ]; then
+    zenity --error --title="network error" --text="Unable to retrieve sdk packet"
+    exit 1
+fi
+
+./splashscreen/getqtcreator.sh
+if [ $? -e 1 ]; then
+    zenity --error --title="network error" --text="Unable to retrieve QT packet"
+    exit 1
+fi
+
