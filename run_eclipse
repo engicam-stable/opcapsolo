@@ -1,6 +1,3 @@
 #!/bin/bash
-cd ..
-ROOTDIR_SDK=`pwd`
-cd eclipse
-./eclipse -vm ${ROOTDIR_SDK}/java/bin -data ${ROOTDIR_SDK}/workspace/eclipse
+zenity --info --title="Eclipse" --text="Eclipse is not supported yet !"
 exit 0
