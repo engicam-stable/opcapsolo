@@ -99,7 +99,7 @@ else
         echo "esco"
         exit 1
     fi
-    git clone https://github.com/inkwaterman/build_opcapsolo.git
+    git clone https://github.com/engicam-stable/build_opcapsolo.git
 fi
 
 exit 0
