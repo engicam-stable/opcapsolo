@@ -8,11 +8,34 @@ ROOT_DIRECTORY=`pwd`
 BASEROOT_SDK=${ROOT_DIRECTORY}
 
 
-function  internet_error()
+function testMD5
 {
-    exit 1;
+    file1=`md5sum $1`
+    file2=`cut -d ' ' -f1 $1.md5`
+
+    echo "Checking file: $1"
+    echo "Using MD5 file: $1.md5"
+
+    file1_1=${file1% *}
+  
+
+    if [ $file1_1 != $file2 ]
+    then
+      echo "md5 sums mismatch"
+      return 1
+    else
+      echo "checksums OK"
+      return 0
+    fi
 }
 
+function  internet_error()
+{
+    rm -f ${VERSIONFILE}
+    rm -f ${MD5FILE}
+    rm -f ${ARCHIVEFILE}
+    exit 1;
+}
 
 ARCHIVEFILE=${FILECHECK}
 MD5FILE="${ARCHIVEFILE}.md5"
@@ -24,18 +47,39 @@ FTPSERVER="ftp://localhost/ftp-tmp/"
 
 
 wget --timeout=${WGET_TIMEOUT}  --ftp-user 'architech' --ftp-password 'architech' ${FTPSERVER}${MD5FILE} 
-[ $? -eq 0 ] || { rm -f${MD5FILE}; internet_error; }
+if [ $? -ne 0 ]
+then
+     internet_error
+fi
 
 if diff ${MD5FILE} ${MD5FILELOCAL} >/dev/null ; then
   echo Same
   rm ${MD5FILE}  
 else
   wget --timeout=${WGET_TIMEOUT}  --ftp-user 'architech' --ftp-password 'architech' ${FTPSERVER}${ARCHIVEFILE}
-  [ $? -eq 0 ] || { rm -f ${ARCHIVEFILE}; internet_error; }
-    
+  if [ $? -ne 0 ]
+  then
+    internet_error
+  fi
+
+  
+  testMD5 ${ARCHIVEFILE}
+  if [ $? -eq 0 ];  then
+     echo "checksum ok"
+  else
+     rm -rf ${ARCHIVEFILE}
+     rm -rf ${MD5FILE}
+     exit 1
+  fi
+
+
   wget --timeout=${WGET_TIMEOUT}  --ftp-user 'architech' --ftp-password 'architech' ${FTPSERVER}${VERSIONFILE}
-  [ $? -eq 0 ] || { rm -f ${VERSIONFILE}; internet_error; }
+  if [ $? -ne 0 ]
+  then
+    internet_error
+  fi
     
+
   if [ -d "${DIRECTORY}" ]; then
      POSTFIX=$(cat ${VERSIONFILELOCAL})
      NEWDIR="${DIRECTORY}.$POSTFIX"
