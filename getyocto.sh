@@ -70,8 +70,9 @@ MD5FILE="${ARCHIVEFILE}.md5"
 MD5FILELOCAL="${DIRECTORY}/${MD5FILE}.local"
 VERSIONFILE="${FILECHECK}.ver"
 VERSIONFILELOCAL="${DIRECTORY}/${VERSIONFILE}.local"
-#FTPSERVER="ftp://engicam.smartfile.com/"
-FTPSERVER="ftp://localhost/ftp-tmp/"
+FTPSERVER="ftp://engicam.smartfile.com/"
+#FTPSERVER="ftp://localhost/ftp-tmp/"
+
 
 if [ -d "${YOCTO_DIRECTORY}" ]; then
     echo "directory yocto exists"

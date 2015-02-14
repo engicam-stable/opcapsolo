@@ -94,8 +94,9 @@ MD5FILE="${ARCHIVEFILE}.md5"
 MD5FILELOCAL="${DIRECTORY}/${MD5FILE}.local"
 VERSIONFILE="${FILECHECK}.ver"
 VERSIONFILELOCAL="${DIRECTORY}/${VERSIONFILE}.local"
-#FTPSERVER="ftp://engicam.smartfile.com/"
-FTPSERVER="ftp://localhost/ftp-tmp/"
+FTPSERVER="ftp://engicam.smartfile.com/"
+#FTPSERVER="ftp://localhost/ftp-tmp/"
+
 
 wget --timeout=${WGET_TIMEOUT}  --ftp-user 'architech' --ftp-password 'architech' ${FTPSERVER}${MD5FILE} 
 if [ $? -ne 0 ]
